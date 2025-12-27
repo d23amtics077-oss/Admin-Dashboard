@@ -31,15 +31,15 @@ const ManageMen = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b">
-                  <th className="py-3 px-4 text-left">name</th>
-                  <th className="py-3 px-4 text-left">image</th>
+                  <th className="py-3 px-4 text-left">Name</th>
+                  <th className="py-3 px-4 text-left">Image</th>
                   <th className="py-3 px-4 text-left">Description</th>
-                  <th className="py-3 px-4 text-left">brand</th>
-                  <th className="py-3 px-4 text-left">base_price</th>
-                  <th className="py-3 px-4 text-left">selling_price</th>
-                  <th className="py-3 px-4 text-left">status</th>
-                  <th className="py-3 px-4 text-left">subcategory_name</th>
-                  <th className="py-3 px-4 text-left">Main_category_name</th>
+                  <th className="py-3 px-4 text-left">Brand</th>
+                  <th className="py-3 px-4 text-left">Base Price</th>
+                  <th className="py-3 px-4 text-left">Selling Price</th>
+                  <th className="py-3 px-4 text-left">Status</th>
+                  <th className="py-3 px-4 text-left">Sub Category</th>
+                  <th className="py-3 px-4 text-left">Action</th>
                 </tr>
               </thead>
 
@@ -58,11 +58,10 @@ const ManageMen = () => {
                     >
                       <td className="py-4 px-4 font-medium">{item.name}</td>
 
-                      {/* ✅ ONLY THIS PART CHANGED */}
                       <td className="py-4 px-4">
                         {item.image ? (
                           <img
-                            src={`http://localhost/apifolder/uploads/${item.image}`}
+                            src={`http://localhost/apifolder/uploads/mens/${item.image}`}
                             alt={item.name}
                             style={{
                               width: "60px",
@@ -82,7 +81,6 @@ const ManageMen = () => {
                       <td className="py-4 px-4">{item.selling_price}</td>
                       <td className="py-4 px-4">{item.status}</td>
                       <td className="py-4 px-4">{item.subcategory_name}</td>
-                      <td className="py-4 px-4">{item.MainName}</td>
 
                       <td className="py-4 px-4">
                         <div className="flex gap-2">
