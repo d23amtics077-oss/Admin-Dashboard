@@ -21,6 +21,27 @@ const Managewomen = () => {
       });
   }, []);
 
+  function handleDelete(id) {
+    const formData = new FormData();
+    formData.append("id", id);
+    axios
+      .post(
+        "http://localhost/apifolder/DeleteAPI/deleteWomensProducts.php",
+        formData
+      )
+      .then((response) => {
+        const json = response.data;
+        if (json.status === true) {
+          alert(json.message);
+
+          setProduct((prev) => prev.filter((item) => item.id !== id));
+        } else {
+          alert(json.message);
+        }
+      })
+      .catch(() => alert("Failed to delete women product."));
+  }
+
   return (
     <div className="p-6">
       <div className="mb-6 flex items-center justify-between">
@@ -98,7 +119,10 @@ const Managewomen = () => {
                           <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
                             <Eye size={18} />
                           </button>
-                          <button className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
+                          <button
+                            onClick={() => handleDelete(item.id)}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                          >
                             <Trash2 size={18} />
                           </button>
                         </div>
